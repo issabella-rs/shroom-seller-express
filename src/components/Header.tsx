@@ -22,15 +22,15 @@ const Header: React.FC = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out-expo py-4 px-6",
-        isScrolled ? "bg-coastal-black/90 backdrop-blur-md py-3" : "bg-transparent"
+        isScrolled ? "bg-doorstep-darkgreen/90 backdrop-blur-md py-3" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <span className={cn(
-            "text-xl font-bold transition-all duration-300 text-coastal-red",
+            "text-xl font-bold transition-all duration-300 text-doorstep-green",
           )}>
-            Coastal Roots
+            Door Step Action
           </span>
         </a>
 
@@ -38,17 +38,17 @@ const Header: React.FC = () => {
           <nav>
             <ul className="flex items-center gap-6">
               <li>
-                <a href="#products" className="text-foreground/80 hover:text-coastal-red transition-colors">
+                <a href="#products" className="text-foreground/80 hover:text-doorstep-green transition-colors">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-foreground/80 hover:text-coastal-red transition-colors">
+                <a href="#about" className="text-foreground/80 hover:text-doorstep-green transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-foreground/80 hover:text-coastal-red transition-colors">
+                <a href="#contact" className="text-foreground/80 hover:text-doorstep-green transition-colors">
                   Contact
                 </a>
               </li>
@@ -70,7 +70,7 @@ const Header: React.FC = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="fixed inset-0 top-16 z-40 bg-coastal-black/95 animate-fade-in p-4">
+          <div className="fixed inset-0 top-16 z-40 bg-doorstep-darkgreen/95 animate-fade-in p-4">
             <nav className="flex flex-col gap-4 p-4">
               <a 
                 href="#products" 

@@ -49,6 +49,14 @@ export default {
           darkgray: '#222222',
           lightgray: '#e0e0e0',
         },
+        doorstep: {
+          green: '#3CB043',
+          brightgreen: '#4CBB17',
+          darkgreen: '#125929',
+          yellow: '#F9E076',
+          blue: '#4C9AFF',
+          brown: '#DA8655',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'

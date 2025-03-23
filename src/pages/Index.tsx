@@ -41,18 +41,29 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-doorstep-yellow/30">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section with Banner */}
       <Hero />
+      
+      {/* Banner Image Section */}
+      <section className="w-full py-8">
+        <div className="container mx-auto">
+          <img 
+            src="/lovable-uploads/24ed5f35-6ad1-47b1-92e9-21a3cf28fd4f.png" 
+            alt="Door Step Action Banner" 
+            className="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </section>
       
       {/* Products Section */}
       <section id="products" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-up">
-            <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-primary">Our Products</span>
-            <h2 className="heading-lg mt-4">Premium Quality Selections</h2>
+            <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-doorstep-green">Our Products</span>
+            <h2 className="heading-lg mt-4 text-doorstep-darkgreen">Premium Quality Selections</h2>
             <p className="body-md text-muted-foreground mt-4">
               Each product is carefully selected and prepared to ensure the highest quality experience. 
               Explore our exclusive collection.
@@ -70,12 +81,12 @@ const Index = () => {
       </section>
       
       {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-coastal-black">
+      <section id="about" className="py-20 px-4 bg-doorstep-darkgreen">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto">
             <div className="text-center animate-fade-up">
-              <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-primary">About Us</span>
-              <h2 className="heading-lg mt-4">Committed to Excellence</h2>
+              <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-doorstep-green">About Us</span>
+              <h2 className="heading-lg mt-4 text-white">Committed to Excellence</h2>
               <p className="body-md text-muted-foreground mt-4">
                 We believe in providing our customers with the highest quality products. 
                 Our commitment to excellence drives everything we do, from carefully selecting the 
@@ -84,18 +95,18 @@ const Index = () => {
             </div>
             
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-coastal-darkgray p-6 rounded-lg animate-fade-up" style={{ animationDelay: "100ms" }}>
-                <h3 className="font-semibold text-lg mb-2">Premium Quality</h3>
+              <div className="bg-doorstep-darkgreen/80 p-6 rounded-lg shadow-md animate-fade-up border border-doorstep-green/30" style={{ animationDelay: "100ms" }}>
+                <h3 className="font-semibold text-lg mb-2 text-doorstep-green">Premium Quality</h3>
                 <p className="text-muted-foreground">Carefully selected and cultivated for the best experience.</p>
               </div>
               
-              <div className="bg-coastal-darkgray p-6 rounded-lg animate-fade-up" style={{ animationDelay: "200ms" }}>
-                <h3 className="font-semibold text-lg mb-2">Fast Shipping</h3>
+              <div className="bg-doorstep-darkgreen/80 p-6 rounded-lg shadow-md animate-fade-up border border-doorstep-green/30" style={{ animationDelay: "200ms" }}>
+                <h3 className="font-semibold text-lg mb-2 text-doorstep-green">Fast Shipping</h3>
                 <p className="text-muted-foreground">Quick and discreet delivery across the United States.</p>
               </div>
               
-              <div className="bg-coastal-darkgray p-6 rounded-lg animate-fade-up" style={{ animationDelay: "300ms" }}>
-                <h3 className="font-semibold text-lg mb-2">Customer Support</h3>
+              <div className="bg-doorstep-darkgreen/80 p-6 rounded-lg shadow-md animate-fade-up border border-doorstep-green/30" style={{ animationDelay: "300ms" }}>
+                <h3 className="font-semibold text-lg mb-2 text-doorstep-green">Customer Support</h3>
                 <p className="text-muted-foreground">Dedicated support team ready to assist with any questions.</p>
               </div>
             </div>
@@ -104,35 +115,35 @@ const Index = () => {
       </section>
       
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-20 px-4 bg-doorstep-yellow/50">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center animate-fade-up">
-            <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-primary">Get In Touch</span>
-            <h2 className="heading-lg mt-4">Questions? Contact Us</h2>
+            <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-doorstep-green">Get In Touch</span>
+            <h2 className="heading-lg mt-4 text-doorstep-darkgreen">Questions? Contact Us</h2>
             <p className="body-md text-muted-foreground mt-4">
               Our team is ready to answer any questions you might have about our products, shipping, or ordering process.
             </p>
             
-            <div className="mt-8 p-8 bg-coastal-black/50 backdrop-blur-md border border-coastal-darkgray rounded-xl">
+            <div className="mt-8 p-8 bg-white/80 backdrop-blur-md border border-doorstep-green/20 rounded-xl shadow-lg">
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full px-4 py-3 rounded-md border border-border bg-coastal-darkgray/50 text-foreground"
+                    className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen"
                   />
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-md border border-border bg-coastal-darkgray/50 text-foreground"
+                    className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen"
                   />
                 </div>
                 <textarea
                   placeholder="Your Message"
                   rows={4}
-                  className="w-full px-4 py-3 rounded-md border border-border bg-coastal-darkgray/50 text-foreground"
+                  className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen"
                 ></textarea>
-                <button className="w-full px-4 py-3 bg-coastal-red text-white rounded-md hover:bg-coastal-darkred transition-colors">
+                <button className="w-full px-4 py-3 bg-doorstep-green text-white rounded-md hover:bg-doorstep-darkgreen transition-colors">
                   Send Message
                 </button>
               </form>
@@ -142,11 +153,11 @@ const Index = () => {
       </section>
       
       {/* Footer */}
-      <footer className="py-12 px-4 bg-coastal-black text-white">
+      <footer className="py-12 px-4 bg-doorstep-darkgreen text-white">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-xl font-bold text-coastal-red">Coastal Roots</h3>
+              <h3 className="text-xl font-bold text-doorstep-green">Door Step Action</h3>
               <p className="text-muted-foreground mt-2">Premium Quality Products</p>
             </div>
             
@@ -154,27 +165,27 @@ const Index = () => {
               <div>
                 <h4 className="font-semibold mb-2">Quick Links</h4>
                 <ul className="space-y-1">
-                  <li><a href="#products" className="text-muted-foreground hover:text-coastal-red">Products</a></li>
-                  <li><a href="#about" className="text-muted-foreground hover:text-coastal-red">About Us</a></li>
-                  <li><a href="#contact" className="text-muted-foreground hover:text-coastal-red">Contact</a></li>
+                  <li><a href="#products" className="text-muted-foreground hover:text-doorstep-green">Products</a></li>
+                  <li><a href="#about" className="text-muted-foreground hover:text-doorstep-green">About Us</a></li>
+                  <li><a href="#contact" className="text-muted-foreground hover:text-doorstep-green">Contact</a></li>
                 </ul>
               </div>
               
               <div>
                 <h4 className="font-semibold mb-2">Legal</h4>
                 <ul className="space-y-1">
-                  <li><a href="#" className="text-muted-foreground hover:text-coastal-red">Terms of Service</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-coastal-red">Privacy Policy</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-coastal-red">Shipping Policy</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-doorstep-green">Terms of Service</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-doorstep-green">Privacy Policy</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-doorstep-green">Shipping Policy</a></li>
                 </ul>
               </div>
             </div>
           </div>
           
-          <Separator className="my-8 bg-coastal-darkgray" />
+          <Separator className="my-8 bg-doorstep-green/20" />
           
           <div className="text-center text-muted-foreground text-sm">
-            <p>&copy; {new Date().getFullYear()} Coastal Roots. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Door Step Action. All rights reserved.</p>
             <p className="mt-1">This is a demo website. Not intended for actual purchases.</p>
           </div>
         </div>
