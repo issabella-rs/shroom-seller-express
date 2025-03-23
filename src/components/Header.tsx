@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Cart from "./Cart";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,16 +22,15 @@ const Header: React.FC = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out-expo py-4 px-6",
-        isScrolled ? "glass py-3" : "bg-transparent"
+        isScrolled ? "bg-coastal-black/90 backdrop-blur-md py-3" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <span className={cn(
-            "text-xl font-bold transition-all duration-300",
-            isScrolled ? "text-foreground" : "text-foreground"
+            "text-xl font-bold transition-all duration-300 text-coastal-red",
           )}>
-            ShroomEssence
+            Coastal Roots
           </span>
         </a>
 
@@ -38,38 +38,39 @@ const Header: React.FC = () => {
           <nav>
             <ul className="flex items-center gap-6">
               <li>
-                <a href="#products" className="text-foreground/80 hover:text-foreground transition-colors">
+                <a href="#products" className="text-foreground/80 hover:text-coastal-red transition-colors">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-foreground/80 hover:text-foreground transition-colors">
+                <a href="#about" className="text-foreground/80 hover:text-coastal-red transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-foreground/80 hover:text-foreground transition-colors">
+                <a href="#contact" className="text-foreground/80 hover:text-coastal-red transition-colors">
                   Contact
                 </a>
               </li>
             </ul>
           </nav>
-          <Button variant="outline" size="icon" className="ml-2">
-            <ShoppingCart className="h-5 w-5" />
+          <Cart />
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <Cart />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="text-foreground"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
 
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
-
         {mobileMenuOpen && (
-          <div className="fixed inset-0 top-16 z-40 glass animate-fade-in p-4">
+          <div className="fixed inset-0 top-16 z-40 bg-coastal-black/95 animate-fade-in p-4">
             <nav className="flex flex-col gap-4 p-4">
               <a 
                 href="#products" 
@@ -92,10 +93,6 @@ const Header: React.FC = () => {
               >
                 Contact
               </a>
-              <Button className="mt-4 gap-2">
-                <ShoppingCart className="h-4 w-4" />
-                <span>View Cart</span>
-              </Button>
             </nav>
           </div>
         )}

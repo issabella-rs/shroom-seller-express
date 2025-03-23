@@ -42,6 +42,13 @@ export default {
           900: '#403445',
           950: '#271f2a',
         },
+        coastal: {
+          red: '#ea384c',
+          darkred: '#c41f32',
+          black: '#0d0d0d',
+          darkgray: '#222222',
+          lightgray: '#e0e0e0',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
