@@ -31,9 +31,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <Card className={cn("overflow-hidden hover-lift", className)}>
-      <div className="relative overflow-hidden h-60">
-        <div className={cn("lazy-image transition-all", imageLoaded ? "loaded" : "loading")}>
+    <Card className={cn("overflow-hidden hover:shadow-lg transition-all", className)}>
+      <div className="relative overflow-hidden h-64">
+        <div className={cn("transition-all", imageLoaded ? "opacity-100" : "opacity-0")}>
           <img
             src={imageUrl}
             alt={title}
@@ -41,6 +41,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
             onLoad={() => setImageLoaded(true)}
           />
         </div>
+        {!imageLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="animate-pulse h-8 w-8 rounded-full bg-gray-200"></div>
+          </div>
+        )}
       </div>
       <CardHeader className="pb-2">
         <Badge variant="outline" className="w-fit mb-2 bg-accent">Premium Quality</Badge>
@@ -53,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <div key={index} className="flex justify-between items-center p-2 bg-secondary rounded-md">
               <span className="font-medium">{tier.quantity}</span>
               <div className="flex items-center">
-                <span className="price-tag mr-2">${tier.price}</span>
+                <span className="font-bold text-lg mr-2">${tier.price}</span>
                 <span className="text-xs text-muted-foreground">{tier.shipping}</span>
               </div>
             </div>

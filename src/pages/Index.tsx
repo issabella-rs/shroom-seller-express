@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -10,7 +9,7 @@ const Index = () => {
     {
       title: "Blue Meanie Shrooms",
       description: "Premium quality Blue Meanie mushrooms, known for their potent effects and unique blue bruising.",
-      imageUrl: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80", 
+      imageUrl: "/lovable-uploads/4983e586-9570-416a-888d-1c3d37848289.png", 
       priceTiers: [
         { quantity: "1 Oz", price: "85", shipping: "shipped 🇺🇸" },
         { quantity: "2 Oz", price: "150", shipping: "shipped 🇺🇸" },
@@ -21,7 +20,7 @@ const Index = () => {
     {
       title: "Deja Vu Mushroom Bars",
       description: "Artisanal mushroom chocolate bars crafted with premium ingredients for a delightful experience.",
-      imageUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80", 
+      imageUrl: "/lovable-uploads/fc28c7d8-de6c-4848-8b51-318c24ca2b4b.png", 
       priceTiers: [
         { quantity: "1 Bar", price: "35", shipping: "+ $5 shipping 🇺🇲" },
         { quantity: "2 Bars", price: "60", shipping: "shipped 🇺🇸" },
@@ -31,7 +30,7 @@ const Index = () => {
     {
       title: "Pre-rolls infused cannabis",
       description: "Expertly crafted pre-rolls infused with premium cannabis for an enhanced experience.",
-      imageUrl: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=800&q=80", 
+      imageUrl: "/lovable-uploads/636ed36f-a316-445c-ad0e-d2c3fd59d346.png", 
       priceTiers: [
         { quantity: "1 Jar (5 count)", price: "35", shipping: "+ $5 shipping 🇺🇲" },
         { quantity: "2 Jars (10 count)", price: "65", shipping: "shipped 🇺🇸" },
