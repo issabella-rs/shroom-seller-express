@@ -17,13 +17,7 @@ const Hero: React.FC = () => {
       
       <div className="container px-4 mx-auto relative z-10">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <div className="space-y-6 animate-fade-up mb-8">
-            <img 
-              src="/lovable-uploads/07fcccec-c6da-4506-93b7-9ecbe2de90e7.png" 
-              alt="Door Step Action Logo" 
-              className="max-w-xs md:max-w-md mx-auto"
-            />
-            
+          <div className="space-y-6 animate-fade-up mb-8">            
             <div className="inline-block">
               <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-doorstep-green">
                 Premium Organic Products
