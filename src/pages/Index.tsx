@@ -80,34 +80,34 @@ const Index = () => {
         </div>
       </section>
       
-      {/* About Section */}
+      {/* About Section - Improved text readability */}
       <section id="about" className="py-20 px-4 bg-doorstep-darkgreen">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto">
             <div className="text-center animate-fade-up">
               <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-doorstep-green">About Us</span>
               <h2 className="heading-lg mt-4 text-white">Committed to Excellence</h2>
-              <p className="body-md text-muted-foreground mt-4">
-                We believe in providing our customers with the highest quality products. 
-                Our commitment to excellence drives everything we do, from carefully selecting the 
-                finest strains to ensuring safe and reliable delivery.
+              <p className="body-md text-white opacity-90 mt-4 leading-relaxed">
+                We believe in providing our customers with only the finest quality products. 
+                Our commitment to excellence is at the core of everything we do, from selecting 
+                premium strains to ensuring safe, reliable delivery.
               </p>
             </div>
             
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-doorstep-darkgreen/80 p-6 rounded-lg shadow-md animate-fade-up border border-doorstep-green/30" style={{ animationDelay: "100ms" }}>
-                <h3 className="font-semibold text-lg mb-2 text-doorstep-green">Premium Quality</h3>
-                <p className="text-muted-foreground">Carefully selected and cultivated for the best experience.</p>
+                <h3 className="font-semibold text-lg mb-3 text-doorstep-green">Premium Quality</h3>
+                <p className="text-white opacity-80 leading-relaxed">Carefully selected and cultivated products that deliver exceptional experiences.</p>
               </div>
               
               <div className="bg-doorstep-darkgreen/80 p-6 rounded-lg shadow-md animate-fade-up border border-doorstep-green/30" style={{ animationDelay: "200ms" }}>
-                <h3 className="font-semibold text-lg mb-2 text-doorstep-green">Fast Shipping</h3>
-                <p className="text-muted-foreground">Quick and discreet delivery across the United States.</p>
+                <h3 className="font-semibold text-lg mb-3 text-doorstep-green">Fast Shipping</h3>
+                <p className="text-white opacity-80 leading-relaxed">Quick and discreet delivery services throughout the United States.</p>
               </div>
               
               <div className="bg-doorstep-darkgreen/80 p-6 rounded-lg shadow-md animate-fade-up border border-doorstep-green/30" style={{ animationDelay: "300ms" }}>
-                <h3 className="font-semibold text-lg mb-2 text-doorstep-green">Customer Support</h3>
-                <p className="text-muted-foreground">Dedicated support team ready to assist with any questions.</p>
+                <h3 className="font-semibold text-lg mb-3 text-doorstep-green">Customer Support</h3>
+                <p className="text-white opacity-80 leading-relaxed">Dedicated team ready to assist with any questions or concerns you may have.</p>
               </div>
             </div>
           </div>
@@ -152,31 +152,31 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Footer */}
+      {/* Footer - Improved for mobile */}
       <footer className="py-12 px-4 bg-doorstep-darkgreen text-white">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
+            <div className="mb-8 md:mb-0 text-center md:text-left">
               <h3 className="text-xl font-bold text-doorstep-green">Door Step Action</h3>
-              <p className="text-muted-foreground mt-2">Premium Quality Products</p>
+              <p className="text-white/80 mt-2">Premium Quality Products</p>
             </div>
             
-            <div className="flex flex-col md:flex-row gap-8">
-              <div>
-                <h4 className="font-semibold mb-2">Quick Links</h4>
-                <ul className="space-y-1">
-                  <li><a href="#products" className="text-muted-foreground hover:text-doorstep-green">Products</a></li>
-                  <li><a href="#about" className="text-muted-foreground hover:text-doorstep-green">About Us</a></li>
-                  <li><a href="#contact" className="text-muted-foreground hover:text-doorstep-green">Contact</a></li>
+            <div className="flex flex-col sm:flex-row gap-8 mb-8 md:mb-0 text-center sm:text-left">
+              <div className="mb-6 sm:mb-0">
+                <h4 className="font-semibold mb-3 text-doorstep-green">Quick Links</h4>
+                <ul className="space-y-2">
+                  <li><a href="#products" className="text-white/70 hover:text-doorstep-green transition-colors">Products</a></li>
+                  <li><a href="#about" className="text-white/70 hover:text-doorstep-green transition-colors">About Us</a></li>
+                  <li><a href="#contact" className="text-white/70 hover:text-doorstep-green transition-colors">Contact</a></li>
                 </ul>
               </div>
               
               <div>
-                <h4 className="font-semibold mb-2">Legal</h4>
-                <ul className="space-y-1">
-                  <li><a href="#" className="text-muted-foreground hover:text-doorstep-green">Terms of Service</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-doorstep-green">Privacy Policy</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-doorstep-green">Shipping Policy</a></li>
+                <h4 className="font-semibold mb-3 text-doorstep-green">Legal</h4>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-white/70 hover:text-doorstep-green transition-colors">Terms of Service</a></li>
+                  <li><a href="#" className="text-white/70 hover:text-doorstep-green transition-colors">Privacy Policy</a></li>
+                  <li><a href="#" className="text-white/70 hover:text-doorstep-green transition-colors">Shipping Policy</a></li>
                 </ul>
               </div>
             </div>
@@ -184,9 +184,9 @@ const Index = () => {
           
           <Separator className="my-8 bg-doorstep-green/20" />
           
-          <div className="text-center text-muted-foreground text-sm">
+          <div className="text-center text-white/70 text-sm">
             <p>&copy; {new Date().getFullYear()} Door Step Action. All rights reserved.</p>
-            <p className="mt-1">This is a demo website. Not intended for actual purchases.</p>
+            <p className="mt-2">This is a demo website. Not intended for actual purchases.</p>
           </div>
         </div>
       </footer>
