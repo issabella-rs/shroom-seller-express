@@ -1,12 +1,14 @@
 
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const AnimatedBall: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || isMobile) return;
 
     // Create scene
     const scene = new THREE.Scene();
@@ -86,14 +88,17 @@ const AnimatedBall: React.FC = () => {
     // Cleanup on unmount
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (containerRef.current) {
+      if (containerRef.current && containerRef.current.firstChild) {
         containerRef.current.removeChild(renderer.domElement);
       }
       geometry.dispose();
       material.dispose();
       texture.dispose();
     };
-  }, []);
+  }, [isMobile]);
+  
+  // Don't render the container at all on mobile
+  if (isMobile) return null;
   
   return (
     <div 

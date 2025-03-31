@@ -1,12 +1,24 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import { Separator } from "@/components/ui/separator";
 import { Twitter } from "lucide-react";
+import { Loader } from "@/components/ui/loader";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Show loading screen for 3 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const products = [
     {
       title: "Blue Meanie Shrooms",
@@ -40,6 +52,17 @@ const Index = () => {
       ],
     },
   ];
+
+  if (isLoading) {
+    return (
+      <Loader 
+        fullScreen 
+        text="Welcome to Smiling Vibes..." 
+        size="lg" 
+        variant="primary"
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-doorstep-yellow/30">
