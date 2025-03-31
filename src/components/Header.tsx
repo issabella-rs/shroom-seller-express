@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out-expo py-4 px-6",
-        isScrolled ? "bg-doorstep-darkgreen/90 backdrop-blur-md py-3" : "bg-transparent"
+        isScrolled || mobileMenuOpen ? "bg-doorstep-darkgreen/90 backdrop-blur-md py-3" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
@@ -75,25 +75,25 @@ const Header: React.FC = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="fixed inset-0 top-16 z-40 bg-doorstep-darkgreen/95 animate-fade-in p-4">
-            <nav className="flex flex-col gap-4 p-4">
+          <div className="fixed inset-0 top-[72px] z-40 bg-doorstep-darkgreen/95 backdrop-blur-md animate-fade-in md:hidden">
+            <nav className="flex flex-col gap-4 p-6">
               <a 
                 href="#products" 
-                className="text-lg py-2 border-b border-border"
+                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Products
               </a>
               <a 
                 href="#about" 
-                className="text-lg py-2 border-b border-border"
+                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </a>
               <a 
                 href="#contact" 
-                className="text-lg py-2 border-b border-border"
+                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
