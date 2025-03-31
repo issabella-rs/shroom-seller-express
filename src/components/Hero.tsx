@@ -1,7 +1,8 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDownCircle } from "lucide-react";
+import { ArrowDownCircle, AlertTriangle } from "lucide-react";
+import AnimatedBall from "./AnimatedBall";
 
 const Hero: React.FC = () => {
   const scrollToProducts = () => {
@@ -15,6 +16,9 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-doorstep-yellow">
       <div className="absolute inset-0 bg-gradient-to-b from-doorstep-green/5 to-doorstep-yellow/70 z-0"></div>
       
+      {/* 3D Animated Ball */}
+      <AnimatedBall />
+      
       <div className="container px-4 mx-auto relative z-10">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <div className="space-y-6 animate-fade-up mb-8">            
@@ -22,6 +26,12 @@ const Hero: React.FC = () => {
               <span className="px-3 py-1 bg-accent rounded-full text-sm font-medium text-doorstep-green">
                 Premium Organic Products
               </span>
+            </div>
+            
+            {/* Age Requirement Notice */}
+            <div className="bg-doorstep-darkgreen/20 p-3 rounded-lg flex items-center justify-center gap-2 text-doorstep-darkgreen border border-doorstep-darkgreen/20">
+              <AlertTriangle size={18} />
+              <span className="text-sm font-medium">21+ Age Requirement: All products are for adults 21 years or older</span>
             </div>
             
             <h1 className="heading-xl text-doorstep-darkgreen">

@@ -29,13 +29,13 @@ const Header: React.FC = () => {
         <a href="/" className="flex items-center gap-2">
           <img 
             src="/lovable-uploads/07fcccec-c6da-4506-93b7-9ecbe2de90e7.png" 
-            alt="Door Step Action Logo" 
+            alt="Smiling Vibes Logo" 
             className="h-10 w-10 rounded-full object-cover border-2 border-doorstep-green"
           />
           <span className={cn(
             "text-xl font-bold transition-all duration-300 text-doorstep-green",
           )}>
-            Door Step Action
+            Smiling Vibes
           </span>
         </a>
 
