@@ -32,7 +32,7 @@ export function Loader({
 
   if (fullScreen) {
     return (
-      <div className="fixed inset-0 flex flex-col items-center justify-center bg-doorstep-yellow/80 backdrop-blur-sm z-50">
+      <div className="fixed inset-0 flex flex-col items-center justify-center bg-doorstep-yellow/80 backdrop-blur-sm z-50" {...props}>
         <LoaderCircle
           className={cn(
             "animate-spin",
@@ -40,7 +40,6 @@ export function Loader({
             variantClasses[variant],
             className
           )}
-          {...props}
         />
         {text && <p className="mt-4 text-doorstep-darkgreen font-medium">{text}</p>}
       </div>
