@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
-import { X, Plus, Minus, ShoppingCart, Bitcoin, DollarSign, CreditCard } from "lucide-react";
+import { X, Plus, Minus, ShoppingCart, Bitcoin, DollarSign, CreditCard, Copy, ExternalLink } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
+import { Input } from "@/components/ui/input";
 
 const Cart: React.FC = () => {
   const { 
@@ -21,8 +22,9 @@ const Cart: React.FC = () => {
     setIsCartOpen
   } = useCart();
 
-  const [paymentMethod, setPaymentMethod] = useState<"solana" | "usdt" | "card">("card");
-  const [checkoutStep, setCheckoutStep] = useState<"cart" | "payment" | "confirmation">("cart");
+  const [paymentMethod, setPaymentMethod] = useState<"solana" | "usdt" | "card" | "bitcoin" | "chime">("card");
+  const [checkoutStep, setCheckoutStep] = useState<"cart" | "payment" | "confirmation" | "payment-instructions">("cart");
+  const [transactionHash, setTransactionHash] = useState("");
   
   const handleCheckout = () => {
     if (checkoutStep === "cart") {
@@ -31,6 +33,11 @@ const Cart: React.FC = () => {
     }
     
     if (checkoutStep === "payment") {
+      if (paymentMethod === "bitcoin" || paymentMethod === "chime") {
+        setCheckoutStep("payment-instructions");
+        return;
+      }
+      
       // Process the payment (in a real app, this would connect to a payment processor)
       toast({
         title: "Payment Processing",
@@ -48,10 +55,46 @@ const Cart: React.FC = () => {
         setIsCartOpen(false);
       }, 2000);
     }
+    
+    if (checkoutStep === "payment-instructions") {
+      if (!transactionHash.trim()) {
+        toast({
+          title: "Transaction ID Required",
+          description: "Please enter your transaction ID or receipt number",
+          variant: "destructive"
+        });
+        return;
+      }
+      
+      toast({
+        title: "Order Received",
+        description: "We'll verify your payment and process your order soon!",
+      });
+      
+      setTimeout(() => {
+        clearCart();
+        setCheckoutStep("cart");
+        setIsCartOpen(false);
+        setTransactionHash("");
+      }, 2000);
+    }
   };
   
   const goBackToCart = () => {
-    setCheckoutStep("cart");
+    if (checkoutStep === "payment-instructions") {
+      setCheckoutStep("payment");
+    } else {
+      setCheckoutStep("cart");
+    }
+  };
+  
+  const copyToClipboard = (text: string, label: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast({
+        title: "Copied to clipboard",
+        description: `${label} has been copied to your clipboard.`,
+      });
+    });
   };
 
   return (
@@ -69,7 +112,10 @@ const Cart: React.FC = () => {
       <SheetContent className="w-full sm:max-w-md overflow-y-auto">
         <SheetHeader>
           <SheetTitle className="text-xl font-bold">
-            {checkoutStep === "cart" ? "Your Cart" : "Payment Method"}
+            {checkoutStep === "cart" ? "Your Cart" : 
+             checkoutStep === "payment" ? "Payment Method" : 
+             checkoutStep === "payment-instructions" ? "Payment Instructions" : 
+             "Checkout"}
           </SheetTitle>
         </SheetHeader>
         
@@ -171,6 +217,28 @@ const Cart: React.FC = () => {
                     className="space-y-4"
                   >
                     <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent">
+                      <RadioGroupItem value="bitcoin" id="bitcoin" />
+                      <Label htmlFor="bitcoin" className="flex items-center gap-2 cursor-pointer">
+                        <Bitcoin className="h-5 w-5 text-amber-500" />
+                        <div>
+                          <div className="font-medium">Bitcoin</div>
+                          <div className="text-xs text-muted-foreground">Pay with Bitcoin cryptocurrency</div>
+                        </div>
+                      </Label>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent">
+                      <RadioGroupItem value="chime" id="chime" />
+                      <Label htmlFor="chime" className="flex items-center gap-2 cursor-pointer">
+                        <DollarSign className="h-5 w-5 text-green-600" />
+                        <div>
+                          <div className="font-medium">Chime</div>
+                          <div className="text-xs text-muted-foreground">Pay with Chime payment link</div>
+                        </div>
+                      </Label>
+                    </div>
+                    
+                    <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent">
                       <RadioGroupItem value="solana" id="solana" />
                       <Label htmlFor="solana" className="flex items-center gap-2 cursor-pointer">
                         <Bitcoin className="h-5 w-5 text-purple-600" />
@@ -207,6 +275,108 @@ const Cart: React.FC = () => {
               </div>
             )}
             
+            {checkoutStep === "payment-instructions" && (
+              <div className="mt-6 space-y-6">
+                <div className="bg-doorstep-yellow/20 p-4 rounded-lg mb-6">
+                  <h3 className="font-medium text-doorstep-darkgreen mb-2">Order Summary</h3>
+                  <div className="flex justify-between mb-1">
+                    <span className="text-sm">{getTotalItems()} items</span>
+                    <span className="font-medium">${getTotalPrice().toFixed(2)}</span>
+                  </div>
+                </div>
+                
+                {paymentMethod === "bitcoin" && (
+                  <div className="space-y-4">
+                    <h3 className="font-medium">Bitcoin Payment</h3>
+                    <div className="p-4 border rounded-md bg-accent/20">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium">Bitcoin Address</span>
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="h-8 w-8 p-0"
+                          onClick={() => copyToClipboard("161i4Gk8GviZowSE7Gkk4Kw6vPCSkbcni3", "Bitcoin address")}
+                        >
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                      </div>
+                      <div className="mt-2 p-2 bg-white/80 rounded text-xs break-all font-mono">
+                        161i4Gk8GviZowSE7Gkk4Kw6vPCSkbcni3
+                      </div>
+                      <p className="mt-4 text-sm text-muted-foreground">
+                        Send exactly ${getTotalPrice().toFixed(2)} worth of Bitcoin to the address above.
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
+                {paymentMethod === "chime" && (
+                  <div className="space-y-4">
+                    <h3 className="font-medium">Chime Payment</h3>
+                    <div className="p-4 border rounded-md bg-accent/20">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium">Chime Payment Link</span>
+                        <a 
+                          href="https://app.chime.com/link/qr?u=JustSmile" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-doorstep-green hover:text-doorstep-darkgreen"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </div>
+                      <div className="mt-2 p-2 bg-white/80 rounded text-xs break-all">
+                        <a 
+                          href="https://app.chime.com/link/qr?u=JustSmile" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-doorstep-green hover:text-doorstep-darkgreen underline"
+                        >
+                          https://app.chime.com/link/qr?u=JustSmile
+                        </a>
+                      </div>
+                      <p className="mt-4 text-sm text-muted-foreground">
+                        Send exactly ${getTotalPrice().toFixed(2)} to the Chime account "JustSmile".
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
+                <div className="space-y-2 mt-6">
+                  <h3 className="font-medium">After Payment</h3>
+                  <p className="text-sm text-muted-foreground">
+                    After sending payment, please enter your transaction ID or receipt number below and send it to:
+                  </p>
+                  
+                  <div className="p-3 border rounded-md flex flex-col gap-2 bg-doorstep-yellow/10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Twitter:</span>
+                      <a 
+                        href="https://x.com/bekindtypaway?s=11" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-doorstep-green hover:text-doorstep-darkgreen text-sm underline"
+                      >
+                        @bekindtypaway
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Telegram:</span>
+                      <span className="text-doorstep-green text-sm">zhaintheplug</span>
+                    </div>
+                  </div>
+                  
+                  <Input
+                    type="text"
+                    placeholder="Enter transaction ID or receipt number"
+                    value={transactionHash}
+                    onChange={(e) => setTransactionHash(e.target.value)}
+                    className="mt-2"
+                  />
+                </div>
+              </div>
+            )}
+            
             <div className="pt-4 border-t border-border mt-4">
               {checkoutStep === "cart" && (
                 <>
@@ -226,7 +396,10 @@ const Cart: React.FC = () => {
                 className="w-full bg-coastal-red hover:bg-coastal-darkred"
                 onClick={handleCheckout}
               >
-                {checkoutStep === "cart" ? "Proceed to Checkout" : "Complete Purchase"}
+                {checkoutStep === "cart" ? "Proceed to Checkout" : 
+                 checkoutStep === "payment" ? "Continue" : 
+                 checkoutStep === "payment-instructions" ? "Confirm Payment Sent" : 
+                 "Complete Purchase"}
               </Button>
               <div className="flex gap-2 w-full">
                 {checkoutStep === "cart" ? (
@@ -252,7 +425,7 @@ const Cart: React.FC = () => {
                     onClick={goBackToCart}
                     className="w-full"
                   >
-                    Back to Cart
+                    Back
                   </Button>
                 )}
               </div>
