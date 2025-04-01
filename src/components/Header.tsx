@@ -27,11 +27,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <img 
-            src="/lovable-uploads/07fcccec-c6da-4506-93b7-9ecbe2de90e7.png" 
-            alt="Smiling Vibes Logo" 
-            className="h-10 w-10 rounded-full object-cover border-2 border-doorstep-green"
-          />
+          <span className="text-2xl" role="img" aria-label="Smiling Face">😊</span>
           <span className={cn(
             "text-xl font-bold transition-all duration-300 text-doorstep-green",
           )}>
