@@ -35,14 +35,14 @@ const CartFooter: React.FC<CartFooterProps> = ({
             <Button 
               variant="outline" 
               onClick={closeCart} 
-              className="flex-1"
+              className="flex-1 border-coastal-red text-coastal-red hover:bg-coastal-red/10"
             >
               Continue Shopping
             </Button>
             <Button 
               variant="ghost" 
               onClick={clearCart} 
-              className="flex-1"
+              className="flex-1 text-coastal-red hover:bg-coastal-red/10"
             >
               Clear Cart
             </Button>
@@ -51,7 +51,7 @@ const CartFooter: React.FC<CartFooterProps> = ({
           <Button
             variant="outline"
             onClick={goBackToCart}
-            className="w-full"
+            className="w-full border-coastal-red text-coastal-red hover:bg-coastal-red/10"
           >
             Back
           </Button>
