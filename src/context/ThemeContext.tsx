@@ -23,7 +23,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     // Check for saved theme in localStorage
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    // Default to dark mode if no saved preference
+    // Default to dark mode
     const initialTheme = savedTheme || "dark";
     setTheme(initialTheme);
     applyTheme(initialTheme);

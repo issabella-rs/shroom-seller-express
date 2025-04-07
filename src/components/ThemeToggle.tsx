@@ -12,7 +12,7 @@ const ThemeToggle = () => {
       variant="ghost" 
       size="icon" 
       onClick={toggleTheme}
-      className="text-foreground rounded-full"
+      className="rounded-full text-foreground"
       aria-label="Toggle theme"
     >
       {theme === "light" ? (
