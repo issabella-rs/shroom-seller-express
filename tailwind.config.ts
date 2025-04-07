@@ -50,12 +50,12 @@ export default {
           lightgray: '#e0e0e0',
         },
         doorstep: {
-          green: '#FF5E8A', // Changed to pink
-          brightgreen: '#FF3A70', // Changed to brighter pink
-          darkgreen: '#C41F32', // Changed to dark red
-          yellow: '#FFDEE2', // Changed to soft pink
-          blue: '#FF85A1', // Changed to light pink
-          brown: '#E05780', // Changed to rose pink
+          green: '#4CAF50',
+          brightgreen: '#66BB6A',
+          darkgreen: '#2E7D32',
+          yellow: '#FFF8E1',
+          blue: '#81D4FA',
+          brown: '#8D6E63',
         },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
