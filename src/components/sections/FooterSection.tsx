@@ -9,7 +9,7 @@ const FooterSection: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0 text-center md:text-left">
-            <h3 className="text-xl font-bold text-doorstep-green">Smiling Vibes</h3>
+            <h3 className="text-xl font-bold text-doorstep-green">DoorstepAction</h3>
             <p className="text-white/80 mt-2">Premium Quality Products</p>
             <div className="mt-4 flex justify-center md:justify-start items-center">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-doorstep-green transition-colors">
@@ -42,7 +42,7 @@ const FooterSection: React.FC = () => {
         <Separator className="my-8 bg-doorstep-green/20" />
         
         <div className="text-center text-white/70 text-sm">
-          <p>&copy; {new Date().getFullYear()} Smiling Vibes. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} DoorstepAction. All rights reserved.</p>
           <p className="mt-2">This is a demo website. Not intended for actual purchases.</p>
           <p className="mt-2 text-doorstep-green font-medium">21+ Age Requirement for All Products</p>
         </div>

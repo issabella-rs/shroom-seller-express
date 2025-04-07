@@ -30,13 +30,13 @@ const Header: React.FC = () => {
         <a href="/" className="flex items-center gap-2">
           <img 
             src="/lovable-uploads/07fcccec-c6da-4506-93b7-9ecbe2de90e7.png" 
-            alt="Smiling Vibes Logo" 
+            alt="DoorstepAction Logo" 
             className="h-10 w-10 rounded-full object-cover border-2 border-doorstep-green dark:border-doorstep-brightgreen"
           />
           <span className={cn(
             "text-xl font-bold transition-all duration-300 text-doorstep-green dark:text-doorstep-brightgreen",
           )}>
-            Smiling Vibes
+            DoorstepAction
           </span>
         </a>
 
