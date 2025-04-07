@@ -47,7 +47,7 @@ export const products: Product[] = [
   {
     title: "THC Pacman Disposables",
     description: "High-quality THC disposable vapes available in Indica, Sativa, or Hybrid varieties for your preference.",
-    imageUrl: "/lovable-uploads/24ed5f35-6ad1-47b1-92e9-21a3cf28fd4f.png", 
+    imageUrl: "/lovable-uploads/7ba52141-7299-49d3-b6bb-f5f7f236929a.png", 
     priceTiers: [
       { quantity: "1 Disposable", price: "40", shipping: "+ $5 shipping 🇺🇲" },
       { quantity: "2 Disposables", price: "75", shipping: "shipped 🇺🇸" },
