@@ -27,7 +27,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-doorstep-yellow/30">
+    <div className="min-h-screen flex flex-col bg-doorstep-yellow/30 dark:bg-doorstep-darkgreen/40">
       <Header />
       <Hero />
       <BannerSection />

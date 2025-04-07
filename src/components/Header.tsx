@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Cart from "./Cart";
+import ThemeToggle from "./ThemeToggle";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,7 +23,7 @@ const Header: React.FC = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out-expo py-4 px-6",
-        isScrolled || mobileMenuOpen ? "bg-doorstep-darkgreen/90 backdrop-blur-md py-3" : "bg-transparent"
+        isScrolled || mobileMenuOpen ? "bg-doorstep-darkgreen/90 backdrop-blur-md py-3 dark:bg-black/70" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
@@ -30,10 +31,10 @@ const Header: React.FC = () => {
           <img 
             src="/lovable-uploads/07fcccec-c6da-4506-93b7-9ecbe2de90e7.png" 
             alt="Smiling Vibes Logo" 
-            className="h-10 w-10 rounded-full object-cover border-2 border-doorstep-green"
+            className="h-10 w-10 rounded-full object-cover border-2 border-doorstep-green dark:border-doorstep-brightgreen"
           />
           <span className={cn(
-            "text-xl font-bold transition-all duration-300 text-doorstep-green",
+            "text-xl font-bold transition-all duration-300 text-doorstep-green dark:text-doorstep-brightgreen",
           )}>
             Smiling Vibes
           </span>
@@ -43,26 +44,28 @@ const Header: React.FC = () => {
           <nav>
             <ul className="flex items-center gap-6">
               <li>
-                <a href="#products" className="text-foreground/80 hover:text-doorstep-green transition-colors">
+                <a href="#products" className="text-foreground/80 hover:text-doorstep-green dark:hover:text-doorstep-brightgreen transition-colors">
                   Products
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-foreground/80 hover:text-doorstep-green transition-colors">
+                <a href="#about" className="text-foreground/80 hover:text-doorstep-green dark:hover:text-doorstep-brightgreen transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-foreground/80 hover:text-doorstep-green transition-colors">
+                <a href="#contact" className="text-foreground/80 hover:text-doorstep-green dark:hover:text-doorstep-brightgreen transition-colors">
                   Contact
                 </a>
               </li>
             </ul>
           </nav>
+          <ThemeToggle />
           <Cart />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <Cart />
           <Button 
             variant="ghost" 
@@ -75,25 +78,25 @@ const Header: React.FC = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="fixed inset-0 top-[72px] z-40 bg-doorstep-darkgreen/95 backdrop-blur-md animate-fade-in md:hidden">
+          <div className="fixed inset-0 top-[72px] z-40 bg-doorstep-darkgreen/95 dark:bg-black/90 backdrop-blur-md animate-fade-in md:hidden">
             <nav className="flex flex-col gap-4 p-6">
               <a 
                 href="#products" 
-                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green transition-colors"
+                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green dark:hover:text-doorstep-brightgreen transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Products
               </a>
               <a 
                 href="#about" 
-                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green transition-colors"
+                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green dark:hover:text-doorstep-brightgreen transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </a>
               <a 
                 href="#contact" 
-                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green transition-colors"
+                className="text-lg py-3 border-b border-border/20 text-foreground hover:text-doorstep-green dark:hover:text-doorstep-brightgreen transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact

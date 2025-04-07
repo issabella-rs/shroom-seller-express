@@ -80,7 +80,7 @@ body {
 }
 
 .glass {
-  @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-lg;
+  @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-lg dark:bg-black/40 dark:border-white/5;
 }
 
 .glass-dark {
@@ -97,11 +97,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-mushroom-300/50 rounded-full transition-all;
+  @apply bg-mushroom-300/50 rounded-full transition-all dark:bg-doorstep-darkgreen/50;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-mushroom-400/80;
+  @apply bg-mushroom-400/80 dark:bg-doorstep-green/80;
 }
 
 .page-transition-enter {
