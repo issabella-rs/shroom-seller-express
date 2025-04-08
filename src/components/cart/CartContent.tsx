@@ -22,7 +22,7 @@ const CartContent: React.FC<CartContentProps> = ({ onClose }) => {
     clearCart 
   } = useCart();
 
-  const [paymentMethod, setPaymentMethod] = useState<"solana" | "usdt" | "card" | "bitcoin" | "chime">("card");
+  const [paymentMethod, setPaymentMethod] = useState<"solana" | "usdt" | "card" | "bitcoin" | "chime" | "paypal" | "cashapp">("card");
   const [checkoutStep, setCheckoutStep] = useState<"cart" | "payment" | "confirmation" | "payment-instructions">("cart");
   const [transactionHash, setTransactionHash] = useState("");
   
@@ -33,7 +33,7 @@ const CartContent: React.FC<CartContentProps> = ({ onClose }) => {
     }
     
     if (checkoutStep === "payment") {
-      if (paymentMethod === "bitcoin" || paymentMethod === "chime") {
+      if (["bitcoin", "chime", "paypal", "cashapp"].includes(paymentMethod)) {
         setCheckoutStep("payment-instructions");
         return;
       }
@@ -125,7 +125,7 @@ const CartContent: React.FC<CartContentProps> = ({ onClose }) => {
             isCheckoutView={true} 
           />
           <PaymentInstructions
-            paymentMethod={paymentMethod as "bitcoin" | "chime"}
+            paymentMethod={paymentMethod as "bitcoin" | "chime" | "paypal" | "cashapp"}
             totalPrice={getTotalPrice()}
             transactionHash={transactionHash}
             setTransactionHash={setTransactionHash}

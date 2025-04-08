@@ -4,7 +4,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Bitcoin, DollarSign, CreditCard } from "lucide-react";
 
-type PaymentMethod = "solana" | "usdt" | "card" | "bitcoin" | "chime";
+type PaymentMethod = "solana" | "usdt" | "card" | "bitcoin" | "chime" | "paypal" | "cashapp";
 
 interface PaymentMethodSelectorProps {
   selectedMethod: PaymentMethod;
@@ -30,6 +30,28 @@ const PaymentMethodSelector: React.FC<PaymentMethodSelectorProps> = ({
             <div>
               <div className="font-medium">Bitcoin</div>
               <div className="text-xs text-muted-foreground">Pay with Bitcoin cryptocurrency</div>
+            </div>
+          </Label>
+        </div>
+        
+        <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent">
+          <RadioGroupItem value="paypal" id="paypal" />
+          <Label htmlFor="paypal" className="flex items-center gap-2 cursor-pointer">
+            <DollarSign className="h-5 w-5 text-blue-600" />
+            <div>
+              <div className="font-medium">PayPal</div>
+              <div className="text-xs text-muted-foreground">Pay with PayPal</div>
+            </div>
+          </Label>
+        </div>
+        
+        <div className="flex items-center space-x-2 border p-3 rounded-md hover:bg-accent">
+          <RadioGroupItem value="cashapp" id="cashapp" />
+          <Label htmlFor="cashapp" className="flex items-center gap-2 cursor-pointer">
+            <DollarSign className="h-5 w-5 text-green-500" />
+            <div>
+              <div className="font-medium">Cash App</div>
+              <div className="text-xs text-muted-foreground">Pay with Cash App</div>
             </div>
           </Label>
         </div>

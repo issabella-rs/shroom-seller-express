@@ -29,10 +29,10 @@ const FooterSection: React.FC = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-3 text-doorstep-green">Legal</h4>
+              <h4 className="font-semibold mb-3 text-doorstep-green">Payment</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/70 hover:text-doorstep-green transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-white/70 hover:text-doorstep-green transition-colors">Privacy Policy</a></li>
+                <li><span className="text-white/70">PayPal: DLKNEWZ@gmail.com</span></li>
+                <li><span className="text-white/70">Cash App: $Muragg</span></li>
                 <li><a href="#" className="text-white/70 hover:text-doorstep-green transition-colors">Shipping Policy</a></li>
               </ul>
             </div>
