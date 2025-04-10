@@ -11,9 +11,14 @@ const FooterSection: React.FC = () => {
           <div className="mb-8 md:mb-0 text-center md:text-left">
             <h3 className="text-xl font-bold text-doorstep-green">DoorstepAction</h3>
             <p className="text-white/80 mt-2">Premium Quality Products</p>
-            <div className="mt-4 flex justify-center md:justify-start items-center">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-doorstep-green transition-colors">
-                <Twitter size={24} />
+            <div className="mt-4 flex gap-4 justify-center md:justify-start items-center">
+              <a href="https://x.com/bekindtypaway?s=11" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-doorstep-green transition-colors group">
+                <Twitter size={24} className="group-hover:scale-110 transition-transform" />
+                <span className="sr-only">@bekindtypaway</span>
+              </a>
+              <a href="https://x.com/285rey?s=11" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-doorstep-green transition-colors group">
+                <Twitter size={24} className="group-hover:scale-110 transition-transform" />
+                <span className="sr-only">@DoorSteppin</span>
               </a>
             </div>
           </div>

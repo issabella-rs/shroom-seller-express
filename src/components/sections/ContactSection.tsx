@@ -14,7 +14,7 @@ const ContactSection: React.FC = () => {
           
           <div className="mt-8 p-8 bg-white/80 backdrop-blur-md border border-doorstep-green/20 rounded-xl shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="p-4 border rounded-md bg-doorstep-yellow/10">
+              <div className="p-4 border rounded-md bg-doorstep-yellow/10 hover:bg-doorstep-yellow/20 transition-colors">
                 <h3 className="font-medium text-doorstep-darkgreen mb-2">Payment Options</h3>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-center justify-between">
@@ -28,12 +28,15 @@ const ContactSection: React.FC = () => {
                 </ul>
               </div>
               
-              <div className="p-4 border rounded-md bg-doorstep-yellow/10">
+              <div className="p-4 border rounded-md bg-doorstep-yellow/10 hover:bg-doorstep-yellow/20 transition-colors">
                 <h3 className="font-medium text-doorstep-darkgreen mb-2">Social Media</h3>
                 <ul className="space-y-2 text-left">
                   <li className="flex items-center justify-between">
-                    <span className="text-sm font-medium">Twitter:</span>
-                    <a href="https://x.com/bekindtypaway?s=11" target="_blank" rel="noopener noreferrer" className="text-doorstep-green text-sm underline">@bekindtypaway</a>
+                    <span className="text-sm font-medium">X/Twitter:</span>
+                    <div className="flex flex-col gap-1">
+                      <a href="https://x.com/bekindtypaway?s=11" target="_blank" rel="noopener noreferrer" className="text-doorstep-green text-sm underline hover:text-doorstep-darkgreen transition-colors">@bekindtypaway</a>
+                      <a href="https://x.com/285rey?s=11" target="_blank" rel="noopener noreferrer" className="text-doorstep-green text-sm underline hover:text-doorstep-darkgreen transition-colors">@DoorSteppin</a>
+                    </div>
                   </li>
                   <li className="flex items-center justify-between">
                     <span className="text-sm font-medium">Telegram:</span>
@@ -48,20 +51,20 @@ const ContactSection: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen"
+                  className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen focus:ring-2 focus:ring-doorstep-green/50 focus:border-doorstep-green/50 transition-all"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen"
+                  className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen focus:ring-2 focus:ring-doorstep-green/50 focus:border-doorstep-green/50 transition-all"
                 />
               </div>
               <textarea
                 placeholder="Your Message"
                 rows={4}
-                className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen"
+                className="w-full px-4 py-3 rounded-md border border-doorstep-green/30 bg-white/80 text-doorstep-darkgreen focus:ring-2 focus:ring-doorstep-green/50 focus:border-doorstep-green/50 transition-all"
               ></textarea>
-              <button className="w-full px-4 py-3 bg-doorstep-green text-white rounded-md hover:bg-doorstep-darkgreen transition-colors">
+              <button className="w-full px-4 py-3 bg-doorstep-green text-white rounded-md hover:bg-doorstep-darkgreen transition-colors transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-doorstep-darkgreen focus:ring-offset-2">
                 Send Message
               </button>
             </form>
