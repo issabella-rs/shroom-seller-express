@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -70,6 +71,10 @@
   @apply border-border;
 }
 
+html, body {
+  @apply overflow-x-hidden scroll-smooth;
+}
+
 body {
   @apply bg-background text-foreground font-sans antialiased;
 }
@@ -87,8 +92,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -146,31 +151,31 @@ body {
 }
 
 .heading-xl {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
 }
 
 .heading-lg {
-  @apply text-3xl md:text-4xl font-bold tracking-tight;
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight;
 }
 
 .heading-md {
-  @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  @apply text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight;
 }
 
 .heading-sm {
-  @apply text-xl md:text-2xl font-semibold tracking-tight;
+  @apply text-lg sm:text-xl md:text-2xl font-semibold tracking-tight;
 }
 
 .body-lg {
-  @apply text-lg leading-relaxed;
+  @apply text-base sm:text-lg leading-relaxed;
 }
 
 .body-md {
-  @apply text-base leading-relaxed;
+  @apply text-sm sm:text-base leading-relaxed;
 }
 
 .body-sm {
-  @apply text-sm leading-relaxed;
+  @apply text-xs sm:text-sm leading-relaxed;
 }
 
 .caption {
@@ -180,3 +185,47 @@ body {
 .price-tag {
   @apply font-mono font-bold text-lg;
 }
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .container {
+    @apply px-4;
+  }
+  
+  section {
+    @apply py-10;
+  }
+  
+  .mobile-menu-active {
+    @apply fixed inset-0 z-50;
+  }
+  
+  .mobile-nav-appear {
+    animation: slide-in 0.3s ease-out;
+  }
+  
+  @keyframes slide-in {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .mobile-menu-item {
+    @apply relative block w-full py-3 px-4 text-lg font-medium transition-all;
+  }
+  
+  .mobile-menu-item::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-doorstep-green transition-all duration-300;
+  }
+  
+  .mobile-menu-item:hover::after {
+    @apply w-full;
+  }
+}
+
+/* Responsive animations */
+.animate-stagger-1 { animation-delay: 100ms; }
+.animate-stagger-2 { animation-delay: 200ms; }
+.animate-stagger-3 { animation-delay: 300ms; }
+.animate-stagger-4 { animation-delay: 400ms; }
+.animate-stagger-5 { animation-delay: 500ms; }
